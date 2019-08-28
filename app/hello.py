@@ -28,6 +28,18 @@ def tag():
 def hello():
     return 'Hello World!'
 
+@app.route("/user/<username>")
+def show_user_profile(username):
+    return 'User %s' % escape(username)
+
+@app.route("/project/")
+def projects():
+  return 'The project page'
+
+@app.route("/about")
+def about():
+    return 'The about page'
+
 if __name__ == "__main__":
     app.run()
 
