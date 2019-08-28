@@ -2,7 +2,7 @@
 
 import platform
 import subprocess
-from flask import Flask, Response, request
+from flask import Flask, Response, request, escape
 app = Flask(__name__)
 
 @app.route("/")
@@ -23,6 +23,10 @@ def tag():
     p = subprocess.Popen(['git', 'describe', '--tags', '--abbrev=0'], stdout=subprocess.PIPE)
     p.wait()
     return p.stdout.read()
+
+@app.route("/hello")
+def hello():
+    return 'Hello World!'
 
 if __name__ == "__main__":
     app.run()
